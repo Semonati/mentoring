@@ -3,6 +3,6 @@ const blocksControllers = require("../controllers/blockController");
 
 const router = express.Router();
 
-router.use("/blocks", blocksControllers);
+router.use(blocksControllers);
 
 module.exports = router;
