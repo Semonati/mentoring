@@ -9,7 +9,7 @@ import axios from "axios";
 import { checkSolution, isUserMentor, removeMentor } from "../utils/helpers";
 import { getMentorFromLocalStorage } from "../utils/localStorage";
 
-const socket = io("https://mentoring-api-cmi0.onrender.com");
+const socket = io("http://localhost:8181");
 
 const Highlight = () => {
   const navigate = useNavigate();
@@ -19,13 +19,17 @@ const Highlight = () => {
   const [code, setCode] = useState("");
   const [result, setResult] = useState("");
   const mentor = getMentorFromLocalStorage(`mentor-${block?.name}`);
+
   const handleBlur = () => {
     setIsEditing(false);
   };
 
+  // Fetching data from server and updateing the state
   const fetchData = async () => {
     try {
-      const { data } = await axios.get(`https://mentoring-api-cmi0.onrender.com/blocks`);
+      const { data } = await axios.get(
+        `https://mentoring-api-cmi0.onrender.com/blocks`
+      );
       data.map((item) => {
         if (item._id == id) {
           setBlock(item);
@@ -37,14 +41,14 @@ const Highlight = () => {
     }
   };
 
-  isUserMentor(socket.id, block);
-
+  // Update the changes in the BD and the state
   const handleInputChange = (e) => {
     setCode(e.target.value);
     setResult(e.target.value);
     socket.emit("send_code", e.target.value);
   };
 
+  // Delete the mentor from local storage
   const handleReturnToHomeButton = () => {
     navigate("/");
     removeMentor({
@@ -53,9 +57,13 @@ const Highlight = () => {
     });
   };
 
+  // Check if its mentor to disable editing option
   const handleEditClick = () => {
     if (mentor !== socket.id) setIsEditing(true);
   };
+
+  // Set the first user as mentor to local storage
+  isUserMentor(socket.id, block);
 
   useEffect(() => {
     fetchData();
@@ -71,6 +79,7 @@ const Highlight = () => {
         Loading the blocks ....
       </Typography>
     );
+
   return (
     <Container sx={{ mb: "20px" }}>
       <h1>{block.title}</h1>

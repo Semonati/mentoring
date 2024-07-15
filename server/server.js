@@ -10,19 +10,22 @@ const router = require("./router/router");
 const app = express();
 const server = http.createServer(app);
 
+// Initialize Socket server
 const io = new Server(server, {
   cors: {
-    origin: ["https://mentoring-online.vercel.app"],
+    origin: ["https://mentoring-online.vercel.app", "http://localhost:5173"],
     methods: ["GET"],
   },
 });
 
 app.use(cors());
-
 app.use(express.json());
 connectToDb();
+
+//Setup router
 app.use("/blocks", router);
 
+// Socket connections
 io.on("connection", (socket) => {
   console.log(`User is connect ${socket.id}`);
 

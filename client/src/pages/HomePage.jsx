@@ -8,16 +8,19 @@ import styles from "./styles.module.css";
 const HomePage = () => {
   const [blocks, setBlocks] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get(`https://mentoring-api-cmi0.onrender.com/blocks`);
-        setBlocks(data);
-      } catch (error) {
-        console.error("Failed to fetching the data!", error);
-      }
-    };
+  // Fetching data from server and updateing the state
+  const fetchData = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://mentoring-api-cmi0.onrender.com/blocks`
+      );
+      setBlocks(data);
+    } catch (error) {
+      console.error("Failed to fetching the data!", error);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
