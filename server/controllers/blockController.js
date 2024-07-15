@@ -49,19 +49,6 @@ const getBlocksById = router.get("/:id", async (req, res) => {
 //   } catch (error) {}
 // };
 
-// router.get("/:id", async (req, res) => {
-//   if (DB === "MONGODB") {
-//     try {
-//       const { id } = req.params;
-//       const blocks = await Blocks.findById(id);
-//       res.status(200).send(blocks);
-//     } catch (error) {
-//       error.status = 404;
-//       return Promise.reject(error);
-//     }
-//   }
-// });
-
 // module.exports = router;
 exports.getBlocksById = getBlocksById;
 exports.getBlocks = getBlocks;
