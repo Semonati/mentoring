@@ -9,6 +9,7 @@ import axios from "axios";
 import { checkSolution, isUserMentor, removeMentor } from "../utils/helpers";
 import { getMentorFromLocalStorage } from "../utils/localStorage";
 
+// Connect client to socket
 const socket = io("http://localhost:8181");
 
 const Highlight = () => {
