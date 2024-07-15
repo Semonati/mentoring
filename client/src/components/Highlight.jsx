@@ -9,7 +9,7 @@ import axios from "axios";
 import { checkSolution, isUserMentor, removeMentor } from "../utils/helpers";
 import { getMentorFromLocalStorage } from "../utils/localStorage";
 
-const socket = io("https://mentoring-api-cmi0.onrender.com/blocks");
+const socket = io("https://mentoring-api-cmi0.onrender.com");
 
 const Highlight = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Highlight = () => {
 
   const fetchData = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:8181/blocks`);
+      const { data } = await axios.get(`https://mentoring-api-cmi0.onrender.com/blocks`);
       data.map((item) => {
         if (item._id == id) {
           setBlock(item);
