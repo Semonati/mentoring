@@ -11,7 +11,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:8181/blocks`);
+        const { data } = await axios.get(`https://mentoring-api-cmi0.onrender.com/blocks`);
         setBlocks(data);
       } catch (error) {
         console.error("Failed to fetching the data!", error);
