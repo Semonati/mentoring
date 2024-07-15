@@ -1,6 +1,6 @@
 const express = require("express");
 const config = require("config");
-const PORT = config.get("PORT");
+const PORT = config.get("PORT") || 8181;
 const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
