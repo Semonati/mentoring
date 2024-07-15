@@ -1,5 +1,4 @@
 .homePageTitle{
-    background-color: lightgreen;
     width: 97%;
     display: flex;
     justify-content: center;
@@ -10,7 +9,6 @@
 .blockContainer{
     height: 400px
 }
-
 
 .item{
 border: black 2px solid;
