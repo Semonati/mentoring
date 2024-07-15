@@ -21,7 +21,11 @@ app.use(cors());
 
 app.use(express.json());
 connectToDb();
-app.use(router);
+// app.use(router);
+app.get("/", (req, res) => {
+    res.json("Hello");
+})
+
 
 io.on("connection", (socket) => {
   console.log(`User is connect ${socket.id}`);
