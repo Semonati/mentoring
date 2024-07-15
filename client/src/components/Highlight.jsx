@@ -10,7 +10,7 @@ import { checkSolution, isUserMentor, removeMentor } from "../utils/helpers";
 import { getMentorFromLocalStorage } from "../utils/localStorage";
 
 // Connect client to socket
-const socket = io("http://localhost:8181");
+const socket = io("https://mentoring-api-cmi0.onrender.com");
 
 const Highlight = () => {
   const navigate = useNavigate();
