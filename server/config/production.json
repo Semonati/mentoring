@@ -1,7 +1,0 @@
-{
-    "NODE_ENV": "production",
-    "PORT": "8181",
-    "DB_NAME": "pashotnati",
-    "DB_PASSWORD": "Semo8086",
-    "DB": "MONGODB"
-}

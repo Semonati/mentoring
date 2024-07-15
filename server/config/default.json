@@ -1,6 +1,0 @@
-{
-    "JWT_KEY": "my_private_key",
-    "EMAIL": "vacationstory2@gmail.com",
-    "PASSWORD": "xdlcukpyksqckoya",
-    "BCRYPT_SALT": 10
-}
