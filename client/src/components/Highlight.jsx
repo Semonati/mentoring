@@ -9,7 +9,7 @@ import axios from "axios";
 import { checkSolution, isUserMentor, removeMentor } from "../utils/helpers";
 import { getMentorFromLocalStorage } from "../utils/localStorage";
 
-const socket = io("https://mentoring-api-59iu.onrender.com");
+const socket = io("https://mentoring-api-cmi0.onrender.com/blocks");
 
 const Highlight = () => {
   const navigate = useNavigate();
