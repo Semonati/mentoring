@@ -6,6 +6,6 @@ const router = express.Router();
 
 // router.use("/",blocksControllers);
 router.get("/", getBlocks);
-router.get("/", getBlocksById);
+router.get("/:id", getBlocksById);
 
 module.exports = router;
